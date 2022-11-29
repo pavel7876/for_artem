@@ -1,0 +1,56 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://Sprites/проо.png" type="Texture" id=1]
+[ext_resource path="res://Sprites/anim1.png" type="Texture" id=2]
+[ext_resource path="res://Sprites/dragon.png" type="Texture" id=3]
+[ext_resource path="res://Scripts/KinematicBody2D.gd" type="Script" id=4]
+[ext_resource path="res://Sprites/уапм.png" type="Texture" id=5]
+[ext_resource path="res://Sprites/укы.png" type="Texture" id=6]
+[ext_resource path="res://Sprites/dfs.png" type="Texture" id=7]
+[ext_resource path="res://Sprites/erg.png" type="Texture" id=8]
+[ext_resource path="res://Scenes/HEALTH.tscn" type="PackedScene" id=9]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 3 ), ExtResource( 1 ) ],
+"loop": true,
+"name": "default",
+"speed": 2.5
+}, {
+"frames": [ ExtResource( 2 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 3 ) ],
+"loop": true,
+"name": "New Anim",
+"speed": 9.0
+}, {
+"frames": [ ExtResource( 8 ) ],
+"loop": false,
+"name": "New Anim 1",
+"speed": 8.0
+} ]
+
+[node name="KinematicBody2D" type="KinematicBody2D"]
+script = ExtResource( 4 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+position = Vector2( -25.1109, -24.7054 )
+frames = SubResource( 1 )
+animation = "New Anim 1"
+centered = false
+
+[node name="Camera2D" type="Camera2D" parent="."]
+current = true
+zoom = Vector2( 0.5, 0.5 )
+smoothing_enabled = true
+
+[node name="HEALTH" parent="Camera2D" instance=ExtResource( 9 )]
+position = Vector2( -237.606, -132.661 )
+
+[node name="HEALTH2" parent="Camera2D" instance=ExtResource( 9 )]
+position = Vector2( -210.106, -132.661 )
+
+[node name="HEALTH3" parent="Camera2D" instance=ExtResource( 9 )]
+position = Vector2( -224.106, -132.161 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+position = Vector2( -0.0589924, 0.53093 )
+polygon = PoolVector2Array( 6.1436, 4.31519, 5.91072, 12.234, -1.94247, 12.103, -1.98666, 9.89327, -0.881809, 7.99292, -1.01439, 6.04838, -3.93121, 6.00418, -3.4813, 4.38351, -6.26587, 3.993, -7.44704, 3.16618, -7.65747, 1.43844, -7.89344, -0.744268, -5.65522, -3.01637, -4.23621, -3.20032, -5.47004, 1.51089, -4.3676, 1.18811, -2.10769, 2.00273, -1.16833, 1.08449, -1.19117, 0.126359, -1.14697, -2.03916, 0.178852, -3.05562, 1.01854, -3.89531, 1.99081, -8.00537, 1.88657, -9.13915, 3.00728, -9.02184, 2.91889, -12.69, 5.8799, -12.69, 6.06477, -9.0866, 6.80055, -9.03404, 6.89636, -8.04956, 8.0619, -8.14059, 9.16558, -9.0866, 9.98019, -9.11287, 10.017, -7.16067, 10.7122, -7.09445, 10.7453, -6.16742, 10.0501, -6.1012, 9.85141, -5.2735, 5.81221, -5.33971, 6.78119, -4.16939, 6.737, -2.79937, 6.77235, -1.30051, 8.37218, -1.11999, 9.25607, -2.22485, 10.6608, -1.89207, 10.5058, -1.38714, 9.4676, -0.610434, 7.43466, -0.654628, 6.72756, 0.317644, 6.77175, 2.96929, 6.77428, 4.63053 )

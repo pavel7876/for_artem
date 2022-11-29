@@ -1,0 +1,38 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Tiles/tilews.tres" type="TileSet" id=1]
+[ext_resource path="res://Scenes/HEALTH.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scenes/person.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Sprites/zvezdy-fon-galaktika.jpg" type="Texture" id=4]
+[ext_resource path="res://Scripts/Testor godot.gd" type="Script" id=5]
+
+[node name="Node2D" type="Node2D"]
+position = Vector2( -166.015, 186.673 )
+rotation = -6.28319
+scale = Vector2( 0.63, 0.5 )
+script = ExtResource( 5 )
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = ExtResource( 1 )
+cell_size = Vector2( 68, 36 )
+format = 1
+tile_data = PoolIntArray( -2752493, 0, 0, -2686958, 0, 0, -2621432, 0, 0, -2621430, 0, 0, -2621429, 0, 0, -2621427, 0, 0, -2621425, 0, 0, -2621423, 0, 0, -2621419, 0, 0, -2555895, 0, 0, -2555892, 0, 0, -2555890, 0, 0, -2555888, 0, 0 )
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+scroll_base_scale = Vector2( -2, -2 )
+scroll_ignore_camera_zoom = true
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+
+[node name="Sprite" type="Sprite" parent="ParallaxBackground"]
+modulate = Color( 0.803922, 0.819608, 1, 1 )
+self_modulate = Color( 0.831373, 0.713726, 0.713726, 1 )
+position = Vector2( 506.723, 309.364 )
+scale = Vector2( 0.771752, 0.718916 )
+texture = ExtResource( 4 )
+
+[node name="KinematicBody2D2" parent="." instance=ExtResource( 3 )]
+position = Vector2( 571.922, -1455.94 )
+
+[node name="HEALTH" parent="." instance=ExtResource( 2 )]
+position = Vector2( 563.192, -1456.94 )
